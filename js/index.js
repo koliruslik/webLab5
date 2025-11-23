@@ -142,8 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const links = document.querySelectorAll('.block2 a');
     const blocks = ['.block1', '.block2', '.block3', '.block4', '.block5', '.block6'];
 
-    // 1. ІНІЦІАЛІЗАЦІЯ: При завантаженні перевіряємо всі блоки
-    // Якщо в сховищі є список для блоку X, ми його малюємо ОДРАЗУ.
     blocks.forEach((selector, index) => {
         const container = document.querySelector(selector);
         if (container) {
@@ -195,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('addBtn').addEventListener('click', () => {
             if (input.value.trim()) {
                 addItemToBlock(blockIndex, input.value.trim());
-                renderListForBlock(container, blockIndex); // Оновлюємо вигляд цього блоку
+                renderListForBlock(container, blockIndex);
                 input.value = '';
                 input.focus();
             }
@@ -203,7 +201,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function getAllLists() {
-        // Структура: { "0": ["item1"], "1": ["itemA", "itemB"], ... }
         return JSON.parse(localStorage.getItem('allBlocksLists') || '{}');
     }
 
